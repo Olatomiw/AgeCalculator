@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import AgeCalculatorCard from './components/AgeCalculatorCard';
 import ComparisonCard from './components/ComparisonCard';
 import SavedDates from './components/SavedDates';
+import StressCompanion from './components/StressCompanion';
 import { SavedCalculation } from './types';
 import { Calendar, Users, Bookmark, Sparkles, Hourglass } from 'lucide-react';
 
@@ -93,19 +94,21 @@ export default function App() {
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16">
         
         {/* Animated Banner Header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700 shadow-sm shadow-emerald-100/50 border border-emerald-150/40">
-            <Sparkles className="h-3.5 w-3.5 fill-emerald-500/10 animate-pulse" />
-            <span>Premium Temporal Chronometer</span>
-          </div>
+        {currentTab !== 'stress' && (
+          <div className="text-center mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700 shadow-sm shadow-emerald-100/50 border border-emerald-150/40">
+              <Sparkles className="h-3.5 w-3.5 fill-emerald-500/10 animate-pulse" />
+              <span>Premium Temporal Chronometer</span>
+            </div>
 
-          <h1 className="mt-3.5 font-display text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
-            bebetolash
-          </h1>
-          <p className="mt-3 max-w-lg mx-auto font-sans text-sm text-slate-500 leading-relaxed">
-            Unveil complete biological summaries, next birth dates countdown ticker, astro alignment structures, and interactive statistics calculated entirely in your browser.
-          </p>
-        </div>
+            <h1 className="mt-3.5 font-display text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
+              bebetolash
+            </h1>
+            <p className="mt-3 max-w-lg mx-auto font-sans text-sm text-slate-500 leading-relaxed">
+              Unveil complete biological summaries, next birth dates countdown ticker, astro alignment structures, and interactive statistics calculated entirely in your browser.
+            </p>
+          </div>
+        )}
 
         {/* Dynamic Route View Switching */}
         <div className="grid gap-8">
@@ -132,6 +135,12 @@ export default function App() {
                 onDeleteDate={handleDeleteDate}
                 onSelectDate={handleSelectSavedDate}
               />
+            </div>
+          )}
+
+          {currentTab === 'stress' && (
+            <div className="animate-[fadeIn_0.4s_ease-out]">
+              <StressCompanion />
             </div>
           )}
         </div>

@@ -15,6 +15,7 @@ export default function Navbar({ currentTab, setCurrentTab }: NavbarProps) {
     { id: 'calculator', label: 'Calculator' },
     { id: 'comparison', label: 'Age Compare' },
     { id: 'saved', label: 'My Saved Dates' },
+    { id: 'stress', label: 'Stress Companion' },
   ];
 
   return (
@@ -33,7 +34,7 @@ export default function Navbar({ currentTab, setCurrentTab }: NavbarProps) {
               bebe<span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-extrabold font-black">tolash</span>
             </span>
             <div className="font-sans text-[10px] uppercase tracking-widest text-emerald-600 font-semibold leading-none mt-0.5">
-              Precision Engine
+              Precision Engine & Calm Space
             </div>
           </div>
         </div>
@@ -42,14 +43,17 @@ export default function Navbar({ currentTab, setCurrentTab }: NavbarProps) {
         <div className="flex items-center gap-1.5 sm:gap-2">
           {links.map((link) => {
             const isActive = currentTab === link.id;
+            const activeClass = link.id === 'stress'
+              ? 'bg-violet-50 text-violet-700 shadow-sm shadow-violet-100/50'
+              : 'bg-emerald-50 text-emerald-700 shadow-sm shadow-emerald-100/50';
             return (
               <button
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => setCurrentTab(link.id)}
-                className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold font-sans transition-all duration-200 sm:px-4 sm:py-2 sm:text-sm ${
+                className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold font-sans transition-all duration-200 sm:px-3 sm:py-2 sm:text-sm ${
                   isActive
-                    ? 'bg-emerald-50 text-emerald-700 shadow-sm shadow-emerald-100/50'
+                    ? activeClass
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
