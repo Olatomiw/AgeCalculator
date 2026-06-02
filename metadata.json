@@ -1,0 +1,6 @@
+{
+  "name": "bebetolash",
+  "description": "Bebetolash Stress Companion: A lightweight, accessible, and calming browser-based suite to assess, monitor, and manage stress using guided breathing and interactive metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
